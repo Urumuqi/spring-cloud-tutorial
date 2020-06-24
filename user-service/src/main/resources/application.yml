@@ -1,0 +1,27 @@
+server:
+  port: 8902
+
+# spring config
+spring:
+  application:
+    name: user-srv
+  datasource:
+    username: yuri
+    password: yuri
+    url: jdbc:mysql://127.0.0.1:3306/user_srv?characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# eureka config
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8900/eureka/
+
+# mybatis config
+mybatis:
+  mapper-locations: classpath:mapping/*.xml,classpath:custommapper/*.xml
+  type-aliases-package: com.urumuqi.userservice.model
+

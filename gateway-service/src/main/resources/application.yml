@@ -1,0 +1,24 @@
+server:
+  port: 8901
+
+# eureka config
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8900/eureka/
+
+# spring config
+spring:
+  application:
+    name: gateway-srv
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: user-srv
+          uri: lb://user-srv
