@@ -1,318 +1,318 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.urumuqi.usersevice.mapper.MemberMapper">
-  <resultMap id="BaseResultMap" type="com.urumuqi.usersevice.model.Member">
-    <id column="guid" jdbcType="VARCHAR" property="guid" />
-    <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="no" jdbcType="VARCHAR" property="no" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="account" jdbcType="VARCHAR" property="account" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-    <result column="gender" jdbcType="BIT" property="gender" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="token" jdbcType="VARCHAR" property="token" />
-    <result column="status" jdbcType="BIT" property="status" />
-    <result column="province_id" jdbcType="INTEGER" property="provinceId" />
-    <result column="city_id" jdbcType="INTEGER" property="cityId" />
-    <result column="area_id" jdbcType="INTEGER" property="areaId" />
-    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
-    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
-    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
-    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
-    <result column="api_token" jdbcType="VARCHAR" property="apiToken" />
-    <result column="is_root" jdbcType="BIT" property="isRoot" />
-    <result column="is_shadow" jdbcType="TINYINT" property="isShadow" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    guid, id, no, username, account, nickname, avatar, gender, phone, area_code, email, 
-    password, token, status, province_id, city_id, area_id, last_login_time, created_at, 
-    updated_at, deleted_at, api_token, is_root, is_shadow
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sfo_members
-    where guid = #{guid,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from sfo_members
-    where guid = #{guid,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.urumuqi.usersevice.model.Member">
-    insert into sfo_members (guid, id, no, 
-      username, account, nickname, 
-      avatar, gender, phone, 
-      area_code, email, password, 
-      token, status, province_id, 
-      city_id, area_id, last_login_time, 
-      created_at, updated_at, deleted_at, 
-      api_token, is_root, is_shadow
-      )
-    values (#{guid,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{no,jdbcType=VARCHAR}, 
-      #{username,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
-      #{avatar,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{phone,jdbcType=VARCHAR}, 
-      #{areaCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{token,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, #{provinceId,jdbcType=INTEGER}, 
-      #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
-      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}, 
-      #{apiToken,jdbcType=VARCHAR}, #{isRoot,jdbcType=BIT}, #{isShadow,jdbcType=TINYINT}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.urumuqi.usersevice.model.Member">
-    insert into sfo_members
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="guid != null">
-        guid,
-      </if>
-      <if test="id != null">
-        id,
-      </if>
-      <if test="no != null">
-        no,
-      </if>
-      <if test="username != null">
-        username,
-      </if>
-      <if test="account != null">
-        account,
-      </if>
-      <if test="nickname != null">
-        nickname,
-      </if>
-      <if test="avatar != null">
-        avatar,
-      </if>
-      <if test="gender != null">
-        gender,
-      </if>
-      <if test="phone != null">
-        phone,
-      </if>
-      <if test="areaCode != null">
-        area_code,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="password != null">
-        password,
-      </if>
-      <if test="token != null">
-        token,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="provinceId != null">
-        province_id,
-      </if>
-      <if test="cityId != null">
-        city_id,
-      </if>
-      <if test="areaId != null">
-        area_id,
-      </if>
-      <if test="lastLoginTime != null">
-        last_login_time,
-      </if>
-      <if test="createdAt != null">
-        created_at,
-      </if>
-      <if test="updatedAt != null">
-        updated_at,
-      </if>
-      <if test="deletedAt != null">
-        deleted_at,
-      </if>
-      <if test="apiToken != null">
-        api_token,
-      </if>
-      <if test="isRoot != null">
-        is_root,
-      </if>
-      <if test="isShadow != null">
-        is_shadow,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="guid != null">
-        #{guid,jdbcType=VARCHAR},
-      </if>
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="no != null">
-        #{no,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="account != null">
-        #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="nickname != null">
-        #{nickname,jdbcType=VARCHAR},
-      </if>
-      <if test="avatar != null">
-        #{avatar,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null">
-        #{gender,jdbcType=BIT},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="areaCode != null">
-        #{areaCode,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
-        #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=BIT},
-      </if>
-      <if test="provinceId != null">
-        #{provinceId,jdbcType=INTEGER},
-      </if>
-      <if test="cityId != null">
-        #{cityId,jdbcType=INTEGER},
-      </if>
-      <if test="areaId != null">
-        #{areaId,jdbcType=INTEGER},
-      </if>
-      <if test="lastLoginTime != null">
-        #{lastLoginTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createdAt != null">
-        #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null">
-        #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deletedAt != null">
-        #{deletedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="apiToken != null">
-        #{apiToken,jdbcType=VARCHAR},
-      </if>
-      <if test="isRoot != null">
-        #{isRoot,jdbcType=BIT},
-      </if>
-      <if test="isShadow != null">
-        #{isShadow,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.urumuqi.usersevice.model.Member">
-    update sfo_members
-    <set>
-      <if test="id != null">
-        id = #{id,jdbcType=INTEGER},
-      </if>
-      <if test="no != null">
+    <resultMap id="BaseResultMap" type="com.urumuqi.usersevice.model.Member">
+        <id column="guid" jdbcType="VARCHAR" property="guid"/>
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="no" jdbcType="VARCHAR" property="no"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="gender" jdbcType="BIT" property="gender"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="area_code" jdbcType="VARCHAR" property="areaCode"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="token" jdbcType="VARCHAR" property="token"/>
+        <result column="status" jdbcType="BIT" property="status"/>
+        <result column="province_id" jdbcType="INTEGER" property="provinceId"/>
+        <result column="city_id" jdbcType="INTEGER" property="cityId"/>
+        <result column="area_id" jdbcType="INTEGER" property="areaId"/>
+        <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+        <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt"/>
+        <result column="api_token" jdbcType="VARCHAR" property="apiToken"/>
+        <result column="is_root" jdbcType="BIT" property="isRoot"/>
+        <result column="is_shadow" jdbcType="TINYINT" property="isShadow"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        guid, id, no, username, account, nickname, avatar, gender, phone, area_code, email,
+        password, token, status, province_id, city_id, area_id, last_login_time, created_at,
+        updated_at, deleted_at, api_token, is_root, is_shadow
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sfo_members
+        where guid = #{guid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from sfo_members
+        where guid = #{guid,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.urumuqi.usersevice.model.Member">
+        insert into sfo_members (guid, id, no,
+        username, account, nickname,
+        avatar, gender, phone,
+        area_code, email, password,
+        token, status, province_id,
+        city_id, area_id, last_login_time,
+        created_at, updated_at, deleted_at,
+        api_token, is_root, is_shadow
+        )
+        values (#{guid,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{no,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+        #{avatar,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{phone,jdbcType=VARCHAR},
+        #{areaCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{token,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, #{provinceId,jdbcType=INTEGER},
+        #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP},
+        #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP},
+        #{apiToken,jdbcType=VARCHAR}, #{isRoot,jdbcType=BIT}, #{isShadow,jdbcType=TINYINT}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.urumuqi.usersevice.model.Member">
+        insert into sfo_members
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="guid != null">
+                guid,
+            </if>
+            <if test="id != null">
+                id,
+            </if>
+            <if test="no != null">
+                no,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="account != null">
+                account,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="areaCode != null">
+                area_code,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="token != null">
+                token,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="provinceId != null">
+                province_id,
+            </if>
+            <if test="cityId != null">
+                city_id,
+            </if>
+            <if test="areaId != null">
+                area_id,
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="updatedAt != null">
+                updated_at,
+            </if>
+            <if test="deletedAt != null">
+                deleted_at,
+            </if>
+            <if test="apiToken != null">
+                api_token,
+            </if>
+            <if test="isRoot != null">
+                is_root,
+            </if>
+            <if test="isShadow != null">
+                is_shadow,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="guid != null">
+                #{guid,jdbcType=VARCHAR},
+            </if>
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="no != null">
+                #{no,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="account != null">
+                #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=BIT},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                #{token,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=BIT},
+            </if>
+            <if test="provinceId != null">
+                #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="lastLoginTime != null">
+                #{lastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deletedAt != null">
+                #{deletedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="apiToken != null">
+                #{apiToken,jdbcType=VARCHAR},
+            </if>
+            <if test="isRoot != null">
+                #{isRoot,jdbcType=BIT},
+            </if>
+            <if test="isShadow != null">
+                #{isShadow,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.urumuqi.usersevice.model.Member">
+        update sfo_members
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=INTEGER},
+            </if>
+            <if test="no != null">
+                no = #{no,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="account != null">
+                account = #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=BIT},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                area_code = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                token = #{token,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=BIT},
+            </if>
+            <if test="provinceId != null">
+                province_id = #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                city_id = #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                area_id = #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deletedAt != null">
+                deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="apiToken != null">
+                api_token = #{apiToken,jdbcType=VARCHAR},
+            </if>
+            <if test="isRoot != null">
+                is_root = #{isRoot,jdbcType=BIT},
+            </if>
+            <if test="isShadow != null">
+                is_shadow = #{isShadow,jdbcType=TINYINT},
+            </if>
+        </set>
+        where guid = #{guid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.urumuqi.usersevice.model.Member">
+        update sfo_members
+        set id = #{id,jdbcType=INTEGER},
         no = #{no,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="account != null">
         account = #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
-      </if>
-      <if test="avatar != null">
         avatar = #{avatar,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null">
         gender = #{gender,jdbcType=BIT},
-      </if>
-      <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="areaCode != null">
         area_code = #{areaCode,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
         token = #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
         status = #{status,jdbcType=BIT},
-      </if>
-      <if test="provinceId != null">
         province_id = #{provinceId,jdbcType=INTEGER},
-      </if>
-      <if test="cityId != null">
         city_id = #{cityId,jdbcType=INTEGER},
-      </if>
-      <if test="areaId != null">
         area_id = #{areaId,jdbcType=INTEGER},
-      </if>
-      <if test="lastLoginTime != null">
         last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createdAt != null">
         created_at = #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null">
         updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deletedAt != null">
         deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="apiToken != null">
         api_token = #{apiToken,jdbcType=VARCHAR},
-      </if>
-      <if test="isRoot != null">
         is_root = #{isRoot,jdbcType=BIT},
-      </if>
-      <if test="isShadow != null">
-        is_shadow = #{isShadow,jdbcType=TINYINT},
-      </if>
-    </set>
-    where guid = #{guid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.urumuqi.usersevice.model.Member">
-    update sfo_members
-    set id = #{id,jdbcType=INTEGER},
-      no = #{no,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      account = #{account,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
-      avatar = #{avatar,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=BIT},
-      phone = #{phone,jdbcType=VARCHAR},
-      area_code = #{areaCode,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      token = #{token,jdbcType=VARCHAR},
-      status = #{status,jdbcType=BIT},
-      province_id = #{provinceId,jdbcType=INTEGER},
-      city_id = #{cityId,jdbcType=INTEGER},
-      area_id = #{areaId,jdbcType=INTEGER},
-      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
-      api_token = #{apiToken,jdbcType=VARCHAR},
-      is_root = #{isRoot,jdbcType=BIT},
-      is_shadow = #{isShadow,jdbcType=TINYINT}
-    where guid = #{guid,jdbcType=VARCHAR}
-  </update>
+        is_shadow = #{isShadow,jdbcType=TINYINT}
+        where guid = #{guid,jdbcType=VARCHAR}
+    </update>
 </mapper>

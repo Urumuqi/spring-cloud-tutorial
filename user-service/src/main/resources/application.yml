@@ -20,6 +20,10 @@ eureka:
     service-url:
       defaultZone: http://localhost:8900/eureka/
 
+feign:
+  hystrix:
+    enabled: false
+
 # mybatis config
 mybatis:
   mapper-locations: classpath:mapping/*.xml,classpath:custommapper/*.xml

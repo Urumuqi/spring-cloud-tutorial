@@ -1,18 +1,46 @@
 package com.urumuqi.usersevice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.urumuqi.usersevice.dto.UserInfo;
+import com.urumuqi.usersevice.request.UserReq;
+import com.urumuqi.usersevice.service.OrderService;
+import com.urumuqi.usersevice.service.UserService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @ResponseBody
-@RequestMapping("/")
+@Slf4j
 public class UserController {
 
-    @GetMapping("/index")
-    public String index()
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private OrderService orderService;
+
+    @GetMapping("/user/{userId}")
+    public String getUser(@PathVariable Integer userId) {
+        log.info("GET request: /user/{id}");
+        return userService.getUser(userId);
+    }
+
+    @PostMapping("/user")
+    public String createUser(@RequestBody UserReq user) {
+        log.info("POST request : /user");
+        return userService.insert(user);
+    }
+
+    @GetMapping("/hellofeign")
+    public String hello() {
+        log.info("get request : /hello");
+        return orderService.hello();
+    }
+
+    @GetMapping("/user/{username}/info")
+    public UserInfo getUserByName(@PathVariable String username)
     {
-        return "hello, spring cloud!";
+        log.info("request getUserByName");
+        return null;
     }
 }

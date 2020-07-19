@@ -1,0 +1,14 @@
+server:
+  port: 8990
+
+spring:
+  application:
+    name: order-srv
+
+# eureka config
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8900/eureka/

@@ -1,5 +1,19 @@
 server:
   port: 8900
+
 spring:
   application:
-    name: eureka-server-node0
+    name: eureka-registry
+
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 3000 # 删除无效节点时间
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    registry-fetch-interval-seconds: 10 # 客户端本地缓存时间
+  instance:
+    lease-renewal-interval-in-seconds: 15 # 每隔 15 秒主动心跳一次
+    lease-expiration-duration-in-seconds: 20 # 超过20秒没有接受到心跳，删除这个服务实例
+    instance-id: eureka-server

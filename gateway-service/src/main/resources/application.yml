@@ -19,6 +19,9 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
-        - id: user-srv
-          uri: lb://user-srv
+    loadbalancer:
+      ribbon:
+        enabled: false
+ribbon:
+  eureka:
+    enabled: false

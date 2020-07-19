@@ -11,19 +11,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class GatewayServiceApplication {
 
-    @Bean
-    public RouteLocator myRoutes(RouteLocatorBuilder builder)
-    {
-         return builder.routes()
-                 .route(p -> p.path("/get")
-                         .filters(f -> f.addRequestHeader("Hello", "World"))
-                         .uri("http://httpbin.org:80")
-                 )
-                 .route(p -> p.path("/user")
-                         .uri("http://localhost:8902/index")
-                 ).build();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(GatewayServiceApplication.class, args);
     }
