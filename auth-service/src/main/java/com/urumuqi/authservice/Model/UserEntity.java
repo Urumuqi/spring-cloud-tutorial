@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
+ * @author wuqi
  * @ClassName UserEntity
  * @Description todo
- * @author wuqi
  * @date 2020/7/10 17:08
  **/
 public class UserEntity {

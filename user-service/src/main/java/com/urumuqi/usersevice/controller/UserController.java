@@ -38,8 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{username}/info")
-    public UserInfo getUserByName(@PathVariable String username)
-    {
+    public UserInfo getUserByName(@PathVariable String username) {
         log.info("request getUserByName");
         return null;
     }

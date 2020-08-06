@@ -21,7 +21,6 @@ public class UserDao {
      * 通过用户名获取用户信息.
      *
      * @param username
-     *
      * @return UserEntity
      */
     public UserEntity getUserDetails(String username) {

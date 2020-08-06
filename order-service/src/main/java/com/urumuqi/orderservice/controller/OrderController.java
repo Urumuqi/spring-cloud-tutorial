@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @GetMapping("/hello")
-    public String hello()
-    {
+    public String hello() {
         log.info("you complete me");
         return "hello, I'm order-srv, U got me!!";
     }
