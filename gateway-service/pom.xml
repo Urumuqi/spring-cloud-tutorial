@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.urumuqi</groupId>
     <artifactId>gateway-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <name>gateway-service</name>
     <description>spring cloud gateway</description>
 

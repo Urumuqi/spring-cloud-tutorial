@@ -10,8 +10,8 @@
     </parent>
     <groupId>com.urumuqi</groupId>
     <artifactId>eureka-registory</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-registory</name>
+    <version>1.0.0-RELEASE</version>
+    <name>eureka-registry</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

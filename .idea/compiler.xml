@@ -18,6 +18,7 @@
     <bytecodeTargetLevel>
       <module name="auth-service" target="1.8" />
       <module name="eureka-registory" target="1.8" />
+      <module name="eureka-registry" target="1.8" />
       <module name="gateway-service" target="1.8" />
       <module name="javapractice" target="1.8" />
       <module name="order-service" target="1.8" />
@@ -28,6 +29,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
       <module name="eureka-registory" options="-parameters" />
+      <module name="eureka-registry" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="javapractice" options="-parameters" />
       <module name="order-service" options="-parameters" />

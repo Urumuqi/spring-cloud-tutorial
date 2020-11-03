@@ -10,7 +10,7 @@ import java.util.function.Predicate;
  * @class MySteams
  * @date 2020/8/4 13:20
  **/
-public class MySteams {
+public class MyStreams {
 
     public static void main(String[] args) {
         List<String> languages = Arrays.asList("Java", "C++", "PHP", "Scala", "Haskell", "Lisp");
