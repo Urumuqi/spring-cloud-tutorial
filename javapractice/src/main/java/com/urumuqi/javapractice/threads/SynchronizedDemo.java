@@ -25,7 +25,6 @@ public class SynchronizedDemo {
         // 不同的线程 调用不同对象 的 同步块，不会导致串行执行
         // Thread threadA1 = new CounterThread(new Counter());
         // Thread threadB1 = new CounterThread(new Counter());
-        //
         // threadA1.start();
         // threadB1.start();
     }
@@ -35,10 +34,20 @@ public class SynchronizedDemo {
  * Synchronized Counter.
  */
 class Counter {
-    long count = 0;
+    private long count = 0;
+
+    public long getCount() {
+        return this.count;
+    }
 
     public synchronized void add(long value) {
         this.count += value;
+    }
+
+    public void add2(long value) {
+        synchronized (this) {
+            this.count += value;
+        }
     }
 }
 
@@ -53,8 +62,9 @@ class CounterThread extends Thread {
     public void run() {
         // super.run();
         for (int i = 0; i < 10; i++) {
-            counter.add(i);
-            System.out.println("Current Thread Name : " + getName() + " counter = " + i);
+            // counter.add(i);
+            counter.add2(i);
+            System.out.println("Current Thread Name : " + getName() + " counter = " + counter.getCount() + ", i = " + i);
         }
     }
 }
